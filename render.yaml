@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: biochat-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.settings
+      - key: QDRANT_URL
+        value: https://c28391e1-e377-471c-b0e8-446d442c6c54.eu-west-1-0.aws.cloud.qdrant.io
+      - key: QDRANT_API_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.cClxyON9Ov1rV6FB_AvOqoO6YhSwKW3kU0X2TS8xzBc
